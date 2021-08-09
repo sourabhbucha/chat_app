@@ -32,17 +32,26 @@ function Rooms(props) {
     return (
         <>
         {/* {Database()} */}
-            <img src={photoURL} alt="" />
-            <h1>{displayName}</h1>
-            <h2>{email}</h2>
-            <input type="text" placeholder="Search..." value = {keyword} onChange={(e) => setKeyword(e.target.value)}/>
+        <div className="barleft">
+            <img className="profilePic" src={photoURL} alt="" />
+        </div>    
+            {/* <h1>{displayName}</h1> */}
+            {/* <h2>{email}</h2> */}
+        <div className="left">    
+            <h1>iChating</h1>
+            <input type="text" placeholder="Search..." className="search" value = {keyword} onChange={(e) => setKeyword(e.target.value)}/>
+            <h3>Rooms</h3>
             <button onClick={()=>Database()}> GetRooms</button>
             {database.map(data => (
                 <button onClick={()=>setRoom(data["Room"])}>{data["Room"]} </button>
             ))}
-            <CreateRoom list = {databaseList}/>
+        </div>    
+            {/* <CreateRoom list = {databaseList}/> */}
             {/* {database.length > 0 ? <Chat database={database} /> : Database()} */}
+        <div className="right">    
+            <h1>{room}</h1>
             <Chat database={room} lim = {3}/>
+        </div>    
             
         </>
     )
