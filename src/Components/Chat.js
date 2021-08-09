@@ -21,8 +21,10 @@ function Chat(props) {
             setMessages(snapshot.docs.map(doc => doc.data()))
         })
     }
+    
     const ChatUser = (emailid) =>{
-        if(emailid === auth.currentUser.email){
+        const {email} = auth.currentUser
+        if(emailid === email){
             return 'self'
         }
         else{
@@ -31,8 +33,8 @@ function Chat(props) {
     }
 
     return (
-        <div>
-            <button onClick={loadMore}>loadmore</button>
+        <div className="ChatArea">
+            <button className="LoadMore" onClick={loadMore}><i class="fa fa-spinner" aria-hidden="true"></i> Load More</button>
             {messages.reverse().map(({idx, text, photoURL, displayName, email})=>(
                 <div className= {ChatUser(email)} key={idx}>
                     <img src={photoURL} alt="" />

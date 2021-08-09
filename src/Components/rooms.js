@@ -68,10 +68,9 @@ function Rooms(props) {
                 </div>
             ))}
         </div>    
-            {/* <CreateRoom list = {databaseList}/> */}
         <div className="right">    
             <h1>{room}</h1>
-            <Chat database={room} lim = {3}/>
+            <Chat database={room} lim = {20}/>
         </div>    
             
         </>

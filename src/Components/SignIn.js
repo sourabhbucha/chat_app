@@ -12,8 +12,9 @@ function SignIn() {
     }
 
     return (
-        <div>
+        <div className="SignIn">
             <button onClick={signInWithGoogle}>Sign In With Google</button>
+            {/* <a href="" onClick={signInWithGoogle}>Sign In With Google<</a> */}
         </div>
     )
 }

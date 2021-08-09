@@ -25,8 +25,8 @@ function SentMessages(props) {
     return (
         <div onSubmit={sendMessage}>
             <form>
-                <input type="text" value={msg} placeholder="Message.." onChange={(e) => setMsg(e.target.value)} />
-                <button type="submit">Send</button>
+                <input className="SendMsg" type="text" value={msg} placeholder="Message.." onChange={(e) => setMsg(e.target.value)} />
+                <button className="SendMsgBtn" type="submit"><i class="fa fa-paper-plane"></i></button>
             </form>
         </div>
     )
