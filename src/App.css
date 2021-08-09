@@ -4,11 +4,27 @@ body {
   --left: #f9f9fc;
   --heading: #31324e;
   --search: #ffffff;
+  --text-box: #ffffff;
   --search-text: #63636d;
   --text-light: #b4b6cb;
   --roomlist-txt: #13145c;
   --chat-self: #f0f0f6;
   --btn: #6364af;
+  --base:#000000;
+
+
+  /* --bg: #1B1F22;
+  --sidebar: #6364AF;
+  --left: #363940;
+  --heading: #ffffff;
+  --search: #363940;
+  --text-box: #363940;
+  --search-text: #63636d;
+  --text-light: #b4b6cb;
+  --roomlist-txt: #ffffff;
+  --chat-self: #f0f0f6;
+  --btn: #7879D5;
+  --base:#ffffff; */
   background-color: var(--bg);
   margin: 0;
 }
@@ -167,6 +183,7 @@ body {
 
 .name > h3 {
   color: #ffffff;
+  font-family: Roboto;
   font-size: max(20px, 2vh);
 }
 
@@ -174,7 +191,7 @@ body {
   margin-left: 1vw;
   color: var(--roomlist-txt);
   font-family: Roboto;
-  font-weight: bold;
+  font-weight: lighter;
   font-size: max(15px, 1vh);
 }
 
@@ -188,6 +205,7 @@ body {
 }
 
 .right > h1 {
+  font-family: Roboto;
   position: fixed;
   display: flex;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
@@ -217,7 +235,7 @@ body {
   /* justify-content: center; */
   margin-left: 40%;
   background: none;
-  color: #000000;
+  color:  var(--base);
   font-size: max(20px, 1vh);
   border: none;
   cursor: pointer;
@@ -318,7 +336,7 @@ body {
   margin-left: 8vw;
   width: 40vw;
   font-family: Roboto;
-  background: var(--search);
+  background: var(--text-box);
   border-radius: 1.5vh;
   color: var(--search-text);
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);

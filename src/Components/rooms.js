@@ -40,6 +40,40 @@ function Rooms(props) {
         }
     }
 
+    const [mode,setMode] = useState(true);
+
+    useEffect(()=>{
+        if(mode){
+            document.body.style.setProperty("--bg", "#ffffff")
+            document.body.style.setProperty("--bg", " #ffffff")
+            document.body.style.setProperty("--sidebar", " #4849a1")
+            document.body.style.setProperty("--left", " #f9f9fc")
+            document.body.style.setProperty("--heading", " #31324e")
+            document.body.style.setProperty("--search", " #ffffff")
+            document.body.style.setProperty("--text-box", " #ffffff")
+            document.body.style.setProperty("--search-text", " #63636d")
+            document.body.style.setProperty("--text-light", " #b4b6cb")
+            document.body.style.setProperty("--roomlist-txt", " #13145c")
+            document.body.style.setProperty("--chat-self", " #f0f0f6")
+            document.body.style.setProperty("--btn", " #6364af")
+            document.body.style.setProperty("--base", "#000000")
+        }
+        else{
+            document.body.style.setProperty("--bg" , " #1B1F22")
+            document.body.style.setProperty("--sidebar" , " #6364AF")
+            document.body.style.setProperty("--left" , " #363940")
+            document.body.style.setProperty("--heading" , " #ffffff")
+            document.body.style.setProperty("--search" , " #363940")
+            document.body.style.setProperty("--text-box" , " #363940")
+            document.body.style.setProperty("--search-text" , " #63636d")
+            document.body.style.setProperty("--text-light" , " #b4b6cb")
+            document.body.style.setProperty("--roomlist-txt" , " #ffffff")
+            document.body.style.setProperty("--chat-self" , " #f0f0f6")
+            document.body.style.setProperty("--btn" , " #7879D5")
+            document.body.style.setProperty("--base" , "#ffffff") 
+        }
+    },[mode])
+
     return (
         <>
         {/* {Database()} */}
@@ -48,7 +82,7 @@ function Rooms(props) {
             <div className="bottom">
                 <hr />
                 <SignOut />
-                <button className="darkmode"><i class="fa fa-moon-o"></i></button>
+                <button className="darkmode"onClick={()=> setMode(!mode)} ><i class="fa fa-moon-o"></i></button>
             </div>
         </div>    
             {/* <h1>{displayName}</h1> */}
