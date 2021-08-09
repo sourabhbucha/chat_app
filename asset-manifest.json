@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/chat_app/static/css/main.b80d9750.chunk.css",
+    "main.js": "/chat_app/static/js/main.cf615fda.chunk.js",
+    "main.js.map": "/chat_app/static/js/main.cf615fda.chunk.js.map",
+    "runtime-main.js": "/chat_app/static/js/runtime-main.e99e3ee7.js",
+    "runtime-main.js.map": "/chat_app/static/js/runtime-main.e99e3ee7.js.map",
+    "static/js/2.6f4f392d.chunk.js": "/chat_app/static/js/2.6f4f392d.chunk.js",
+    "static/js/2.6f4f392d.chunk.js.map": "/chat_app/static/js/2.6f4f392d.chunk.js.map",
+    "index.html": "/chat_app/index.html",
+    "static/css/main.b80d9750.chunk.css.map": "/chat_app/static/css/main.b80d9750.chunk.css.map",
+    "static/js/2.6f4f392d.chunk.js.LICENSE.txt": "/chat_app/static/js/2.6f4f392d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e99e3ee7.js",
+    "static/js/2.6f4f392d.chunk.js",
+    "static/css/main.b80d9750.chunk.css",
+    "static/js/main.cf615fda.chunk.js"
+  ]
+}
