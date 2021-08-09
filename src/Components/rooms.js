@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { db , auth } from '../firebase';
 import Chat from './Chat';
 import CreateRoom from './CreateRoom';
+import SignOut from './SignOut'
 
 
 function Rooms(props) {
@@ -34,16 +35,26 @@ function Rooms(props) {
         {/* {Database()} */}
         <div className="barleft">
             <img className="profilePic" src={photoURL} alt="" />
+            <div className="bottom">
+                <SignOut />
+                <button className="darkmode"><i class="fa fa-moon-o"></i></button>
+            </div>
         </div>    
             {/* <h1>{displayName}</h1> */}
             {/* <h2>{email}</h2> */}
         <div className="left">    
             <h1>iChating</h1>
             <input type="text" placeholder="Search..." className="search" value = {keyword} onChange={(e) => setKeyword(e.target.value)}/>
-            <h3>Rooms</h3>
-            <button onClick={()=>Database()}> GetRooms</button>
-            {database.map(data => (
-                <button onClick={()=>setRoom(data["Room"])}>{data["Room"]} </button>
+            <div className="flex">
+                <h3>Rooms</h3>
+                <button className="refreshRooms" onClick={()=>Database()}><i className="fa fa-refresh"></i></button>
+            </div>
+
+            {database.map((data,idx) => (
+                <div className="roomlist" key={idx} onClick={()=>setRoom(data["Room"])}>
+                    <div className="name"><h3>{data["Room"][0].toUpperCase()}</h3></div>
+                    <h4>{data["Room"]} </h4>
+                </div>
             ))}
         </div>    
             {/* <CreateRoom list = {databaseList}/> */}

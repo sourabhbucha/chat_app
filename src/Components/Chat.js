@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { db } from '../firebase';
 import SentMessages from './SentMessages';
-import SignOut from './SignOut'
+
 
 function Chat(props) {
     const [messages,setMessages] = useState([]);
@@ -23,7 +23,6 @@ function Chat(props) {
     }
     return (
         <div>
-            <SignOut />
             <button onClick={loadMore}>loadmore</button>
             {messages.reverse().map(({idx, text, photoURL, displayName , uid})=>(
                 <div key={idx}>

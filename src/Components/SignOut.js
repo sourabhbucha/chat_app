@@ -4,8 +4,8 @@ import { auth } from '../firebase'
 function SignOut() {
     return (
         <div>
-            <button onClick={() => auth.signOut()}>
-                SignOut
+            <button className="SignOutBtn" onClick={() => auth.signOut()}>
+                <i class="fa fa-sign-out"></i>
             </button>
         </div>
     )
