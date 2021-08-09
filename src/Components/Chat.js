@@ -14,7 +14,6 @@ function Chat(props) {
             db.collection(props.database).orderBy('createdAt','desc').limit(lim).onSnapshot(snapshot => {
             setMessages(snapshot.docs.map(doc => doc.data()))
         })
-        console.log("render");
     })
     function loadMore() {
         setLim(lim + 2);
