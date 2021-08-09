@@ -30,12 +30,22 @@ function Rooms(props) {
         }
     },[keyword]);
 
+    const activeRoom = (NAME) => {
+        if(room === NAME){
+            return 'roomlist active'
+        }
+        else{
+            return 'roomlist'
+        }
+    }
+
     return (
         <>
         {/* {Database()} */}
         <div className="barleft">
             <img className="profilePic" src={photoURL} alt="" />
             <div className="bottom">
+                <hr />
                 <SignOut />
                 <button className="darkmode"><i class="fa fa-moon-o"></i></button>
             </div>
@@ -51,7 +61,7 @@ function Rooms(props) {
             </div>
 
             {database.map((data,idx) => (
-                <div className="roomlist" key={idx} onClick={()=>setRoom(data["Room"])}>
+                <div className={activeRoom(data["Room"])} key={idx} onClick={()=>setRoom(data["Room"])}>
                     <div className="name"><h3>{data["Room"][0].toUpperCase()}</h3></div>
                     <h4>{data["Room"]} </h4>
                 </div>
