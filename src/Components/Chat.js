@@ -3,18 +3,22 @@ import { db } from '../firebase';
 import SentMessages from './SentMessages';
 import SignOut from './SignOut'
 
-function Chat() {
+function Chat(props) {
     const [messages,setMessages] = useState([]);
-    const [lim,setLim] = useState(2);
+    const [lim,setLim] = useState(props.lim);
+    useEffect(()=>{
+        setLim(props.lim)
+    },[props.database])
+    
     useEffect(() => {
-        db.collection('messages').orderBy('createdAt','desc').limit(lim).onSnapshot(snapshot => {
+            db.collection(props.database).orderBy('createdAt','desc').limit(lim).onSnapshot(snapshot => {
             setMessages(snapshot.docs.map(doc => doc.data()))
         })
-    },[lim])
+        console.log("render");
+    })
     function loadMore() {
         setLim(lim + 2);
-        console.log(lim);
-        db.collection('messages').orderBy('createdAt','desc').limit(lim).onSnapshot(snapshot => {
+        db.collection(props.database).orderBy('createdAt','desc').limit(lim).onSnapshot(snapshot => {
             setMessages(snapshot.docs.map(doc => doc.data()))
         })
     }
@@ -22,14 +26,14 @@ function Chat() {
         <div>
             <SignOut />
             <button onClick={loadMore}>loadmore</button>
-            {messages.reverse().map(({id, text, photoURL, displayName , uid})=>(
-                <div key={id}>
+            {messages.reverse().map(({idx, text, photoURL, displayName , uid})=>(
+                <div key={idx}>
                     <img src={photoURL} alt="" />
                     <h4>{displayName}</h4>
                     <p>{text}</p>
                 </div>
             ))}
-            <SentMessages />
+            <SentMessages database = {props.database} />
         </div>
     )
 }

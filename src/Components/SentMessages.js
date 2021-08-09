@@ -2,14 +2,15 @@ import React, {useState} from 'react';
 import {db, auth} from '../firebase'
 import firebase from 'firebase';
 
-function SentMessages() {
+function SentMessages(props) {
     const [msg,setMsg] = useState('')
 
     async function sendMessage(e) {
         if(msg !== ''){
         e.preventDefault()
         const {uid, photoURL, email , displayName } = auth.currentUser
-        await db.collection('messages').add({
+        await 
+            db.collection(props.database).add({
             text: msg,
             photoURL,
             uid,
@@ -18,6 +19,7 @@ function SentMessages() {
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })
         setMsg('')
+    
     }
     }
     return (
