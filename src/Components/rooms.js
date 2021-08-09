@@ -10,6 +10,7 @@ function Rooms(props) {
     const [databaseList,setDatabaseList] = useState([{"Room":"messages"}])
     const [database,setDatabase] = useState(databaseList)
     const [room,setRoom] = useState(databaseList[0]["Room"])
+    const colour = ["#37A163","#7854A1","#41A4C9","#EB5211","#2C7DB2","#DE0077","#6C67AC"];
     const Database = () => {
             db.collection('Database').onSnapshot(snapshot => {
             setDatabaseList(snapshot.docs.map(doc => doc.data()));
@@ -62,13 +63,12 @@ function Rooms(props) {
 
             {database.map((data,idx) => (
                 <div className={activeRoom(data["Room"])} key={idx} onClick={()=>setRoom(data["Room"])}>
-                    <div className="name"><h3>{data["Room"][0].toUpperCase()}</h3></div>
+                    <div className="name" style={{backgroundColor: colour[Math.floor( Math.random() * (7) )] }}><h3>{data["Room"][0].toUpperCase()}</h3></div>
                     <h4>{data["Room"]} </h4>
                 </div>
             ))}
         </div>    
             {/* <CreateRoom list = {databaseList}/> */}
-            {/* {database.length > 0 ? <Chat database={database} /> : Database()} */}
         <div className="right">    
             <h1>{room}</h1>
             <Chat database={room} lim = {3}/>

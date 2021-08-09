@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { db } from '../firebase';
+import { db, auth } from '../firebase';
 import SentMessages from './SentMessages';
 
 
@@ -21,11 +21,20 @@ function Chat(props) {
             setMessages(snapshot.docs.map(doc => doc.data()))
         })
     }
+    const ChatUser = (emailid) =>{
+        if(emailid === auth.currentUser.email){
+            return 'self'
+        }
+        else{
+            return 'other'
+        }
+    }
+
     return (
         <div>
             <button onClick={loadMore}>loadmore</button>
-            {messages.reverse().map(({idx, text, photoURL, displayName , uid})=>(
-                <div key={idx}>
+            {messages.reverse().map(({idx, text, photoURL, displayName, email})=>(
+                <div className= {ChatUser(email)} key={idx}>
                     <img src={photoURL} alt="" />
                     <h4>{displayName}</h4>
                     <p>{text}</p>

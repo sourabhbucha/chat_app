@@ -7,6 +7,7 @@ body {
   --search-text: #63636d;
   --text-light: #b4b6cb;
   --roomlist-txt: #13145c;
+  --chat-self: #f0f0f6;
   --btn: #6364af;
   background-color: var(--bg);
   margin: 0;
@@ -35,15 +36,16 @@ body {
   border-radius: 50%;
 }
 
-.bottom{
-    margin-top: auto;
+.bottom {
+  margin-top: auto;
 }
 
-.bottom > hr{
-    border: 0.5px solid var(--btn);
+.bottom > hr {
+  border: 0.5px solid var(--btn);
 }
-.bottom > button , .SignOutBtn {
-    margin-bottom: 1vh;
+.bottom > button,
+.SignOutBtn {
+  margin-bottom: 1vh;
   border-radius: 0.75vw;
   display: block;
   width: 3vw;
@@ -119,7 +121,7 @@ body {
 }
 
 .name {
-    margin-left: 1vw;
+  margin-left: 1vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,7 +130,7 @@ body {
   height: 6vh;
   width: 6vh;
   border-radius: 50%;
-  background-color: #4849a1; /*rand*/
+  /* background-color: #4849a1; */
 }
 
 .name > h3 {
@@ -145,12 +147,96 @@ body {
 }
 
 .active {
-    background-image: linear-gradient(to right, var(--text-light) , var(--left));
-    border-radius: 0.75vw;
-
+  background-image: linear-gradient(to right, var(--text-light), var(--left));
+  border-radius: 0.75vw;
 }
 
 .right {
   margin-left: 30vw;
 }
-/* Search */
+
+.self {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.self > img {
+  display: none;
+}
+
+.self > h4 {
+  margin-left: auto;
+  margin-right: 2vw;
+  margin-bottom: 0;
+  color: var(--text-light);
+  font-family: Roboto;
+  font-weight: lighter;
+  font-size: max(10px, 0.5vh);
+}
+
+.self > p {
+  padding-top: max(5px, 0.5vh);
+  padding-left: max(5px, 1vw);
+  padding-right: max(5px, 1vw);
+  padding-bottom: max(5px, 0.5vh);
+  border-radius: 10px;
+  min-width: 10vw;
+  max-width: 30vw;
+  background-color: var(--chat-self);
+  margin-top: 0;
+  margin-left: auto;
+  text-align:justify ;
+  margin-right: 2vw;
+  font-family: Roboto;
+  font-size: max(15px, 1vh);
+}
+
+
+.other {
+  display: grid;
+  grid-template-rows: max(10px, 0.5vh) auto;
+  grid-template-columns: auto auto;
+  justify-content: left;
+  align-items: center;
+}
+
+.other > img {
+  grid-column: 1/2;
+  grid-row: span 2;
+  height: max(40px, 2.5vh);
+  width: max(40px, 2.5vh);
+  border-radius: 50%;
+  margin-left: 1vw;
+}
+
+.other > h4 {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  margin-left: 1vw;
+  margin-bottom: 0; 
+  color: var(--text-light);
+  font-family: Roboto;
+  font-weight: lighter;
+  font-size: max(10px, 0.5vh);
+}
+
+.other > p {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  padding-top: max(5px, 0.5vh);
+  padding-left: max(5px, 1vw);
+  padding-right: max(5px, 1vw);
+  padding-bottom: max(5px, 0.5vh);
+  border-radius: 10px;
+  margin-left: 1vw;
+  min-width: 10vw;
+  max-width: 30vw;
+  color: #ffffff;
+  background-color: var(--sidebar);
+  margin-top: max(9px, 0.9vh);
+  text-align:justify ;
+  font-family: Roboto;
+  font-size: max(15px, 1vh);
+}
