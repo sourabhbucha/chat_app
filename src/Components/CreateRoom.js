@@ -21,7 +21,9 @@ function CreateRoom(props) {
             displayName,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })
+        alert(room + " room is created")
         setRoom('')
+        document.getElementById("CRoom").style.display="none"
 }
 }
 
@@ -38,7 +40,8 @@ useEffect(() => {
 
 
     return (
-        <div onSubmit={createRoom}>
+        <div className="CreateRoom" id="CRoom" onSubmit={createRoom}>
+            <button onClick={()=>document.getElementById("CRoom").style.display="none"}><i class="fa fa-times"></i></button>
             <form>
                 <input type="text" value={room} placeholder="Create Room..." onChange={(e) => setRoom(e.target.value)} />
                 <button type="submit" disabled={isAvalialbe}>Create</button>

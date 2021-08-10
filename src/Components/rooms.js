@@ -77,6 +77,7 @@ function Rooms(props) {
     return (
         <>
         {/* {Database()} */}
+        <CreateRoom  list={databaseList}/>
         <div className="barleft">
             <img className="profilePic" src={photoURL} alt="" />
             <div className="bottom">
@@ -87,20 +88,24 @@ function Rooms(props) {
         </div>    
             {/* <h1>{displayName}</h1> */}
             {/* <h2>{email}</h2> */}
-        <div className="left">    
+        <div className="left">  
+            <div className="flex1">
             <h1>iChating</h1>
+            </div>
             <input type="text" placeholder="Search..." className="search" value = {keyword} onChange={(e) => setKeyword(e.target.value)}/>
             <div className="flex">
                 <h3>Rooms</h3>
                 <button className="refreshRooms" onClick={()=>Database()}><i className="fa fa-refresh"></i></button>
+                <button className="CrRoom" onClick={()=>document.getElementById("CRoom").style.display="flex"}><i class="fa fa-plus"></i></button>
             </div>
-
-            {database.map((data,idx) => (
-                <div className={activeRoom(data["Room"])} key={idx} onClick={()=>setRoom(data["Room"])}>
-                    <div className="name" style={{backgroundColor: colour[Math.floor( Math.random() * (7) )] }}><h3>{data["Room"][0].toUpperCase()}</h3></div>
-                    <h4>{data["Room"]} </h4>
-                </div>
-            ))}
+            <div className="roomslistbox">
+                {database.map((data,idx) => (
+                    <div className={activeRoom(data["Room"])} key={idx} onClick={()=>setRoom(data["Room"])}>
+                        <div className="name" style={{backgroundColor: colour[Math.floor( Math.random() * (7) )] }}><h3>{data["Room"][0].toUpperCase()}</h3></div>
+                        <h4>{data["Room"]} </h4>
+                    </div>
+                ))}
+            </div>    
         </div>    
         <div className="right">    
             <h1>{room}</h1>
