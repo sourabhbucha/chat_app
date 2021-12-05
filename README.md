@@ -1,3 +1,3 @@
 # chat_app
 
-A basic music player app made by reactJS and Firebase Cloud
+A basic Web Chattting App developed using reactJS and Firebase Cloud
